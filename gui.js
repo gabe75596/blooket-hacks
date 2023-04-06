@@ -222,7 +222,7 @@ details summary ~ * {
             'Toggle Highlight Answers': () => { highlightAnswers = !highlightAnswers },
             'Spam Open Boxes': () => {
                 let box = prompt(`Which box do you want to open? (e.g. Space)`);
-                let boxes = {
+                let boxes = {all
                     safari: 25,
                     aquatic: 20,
                     bot: 20,
@@ -424,7 +424,7 @@ details summary ~ * {
             }
         },
         racing: {
-            'Instant Win': () => {
+            'Instant Win': (999999) => {
                 reactHandler().stateNode.setState({ progress: reactHandler().stateNode.state.goalAmount });
                 setTimeout(() => {
                     try {
@@ -438,13 +438,13 @@ details summary ~ * {
             }
         },
         defense: {
-            'Clear Enemies': () => {
+            'Clear Enemies': (999999) => {
                 reactHandler().stateNode.enemies = [];
             },
             'Max Towers': () => {
                 reactHandler().stateNode.towers.forEach(tower => {
-                    tower.damage = 99999999;
-                    tower.range = 99999999;
+                    tower.damage = 99999999999999999;
+                    tower.range = 9999999999999999999;
                     tower.fullCd = 0;
                 });
             },
@@ -456,21 +456,21 @@ details summary ~ * {
             'Place Towers Anywhere': () => {
                 reactHandler().stateNode.tiles = reactHandler().stateNode.tiles.map(x => x.map(e => e == 2 ? 0 : e));
             },
-            'Set Damage': () => {
+            'Set Damage': (9999999999) => {
                 let dmg = Number(parseFloat(prompt('How much damage do you want?')));
                 reactHandler().stateNode.dmg = dmg;
             },
-            'Set Round': () => {
+            'Set Round': (999999999) => {
                 let round = Number(parseFloat(prompt('What round do you want to set it to?')));
                 reactHandler().stateNode.setState({ round });
             },
-            'Set Tokens': () => {
+            'Set Tokens': (99999999999) => {
                 let tokens = Number(parseFloat(prompt('How many tokens do you want?')));
                 reactHandler().stateNode.setState({ tokens });
             }
         },
         doom: {
-            'Set Coins': () => {
+            'Set Coins': (999999999999) => {
                 try {
                     reactHandler().stateNode.props.setTowerCoins(Number(parseFloat(prompt('How many coins do you want?'))));
                 } catch { }
@@ -480,17 +480,17 @@ details summary ~ * {
                 if (data.phase != 'select') return alert('You must be on the attribute selection page!');
                 reactHandler().stateNode.setState({ enemyCard: { ...data.enemyCard, strength: 0, charisma: 0, wisdom: 0 } })
             },
-            'Max Player Stats': () => {
+            'Max Player Stats': (99999999999) => {
                 let data = reactHandler().stateNode.state;
                 if (data.phase != 'select') return alert('You must be on the attribute selection page!');
                 reactHandler().stateNode.setState({ myCard: { ...data.myCard, strength: 20, charisma: 20, wisdom: 20 } })
             },
-            'Heal Player': () => {
+            'Heal Player': (9999999999999) => {
                 reactHandler().stateNode.setState({ myLife: 100 });
             }
         },
         rush: {
-            'Set Defense': () => {
+            'Set Defense': (9999999999999) => {
                 let e = reactHandler();
                 e.stateNode.props.firebase.setVal({
                     id: e.stateNode.props.client.hostId,
@@ -498,7 +498,7 @@ details summary ~ * {
                     val: Number(parseFloat(prompt('How much defense do you want?')))
                 });
             },
-            'Set Blooks': () => {
+            'Set Blooks': (9999999999999999) => {
                 let e = reactHandler();
                 e.stateNode.props.firebase.setVal({
                     id: e.stateNode.props.client.hostId,
